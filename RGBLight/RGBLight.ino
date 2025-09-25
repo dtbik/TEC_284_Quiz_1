@@ -16,28 +16,37 @@ void loop() {
   if (digitalRead(5) == LOW && digitalRead(6) == HIGH && digitalRead(7) == HIGH) {
     Serial.println("The light is blue!");
     digitalWrite(2, HIGH);
+    digitalWrite(3, LOW);
+    digitalWrite(4, LOW);
   }
   else if (digitalRead(5) == HIGH && digitalRead(6) == LOW && digitalRead(7) == HIGH) {
     Serial.println("The light is red!");
+    digitalWrite(2, LOW);
     digitalWrite(3, HIGH);
+    digitalWrite(4, LOW);
   }
   else if (digitalRead(5) == HIGH && digitalRead(6) == HIGH && digitalRead(7) == LOW) {
     Serial.println("The light is green!");
+    digitalWrite(2, LOW);
+    digitalWrite(3, LOW);
     digitalWrite(4, HIGH);
   }
   else if (digitalRead(5) == LOW && digitalRead(6) == LOW && digitalRead(7) == HIGH) {
     Serial.println("The light is purple!");
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
+    digitalWrite(4, LOW);
   }
   else if (digitalRead(5) == HIGH && digitalRead(6) == LOW && digitalRead(7) == LOW) {
     Serial.println("The light is yellow!");
+    digitalWrite(2, LOW);
     digitalWrite(3, HIGH);
     digitalWrite(4, HIGH);
   }
   else if (digitalRead(5) == LOW && digitalRead(6) == HIGH && digitalRead(7) == LOW) {
     Serial.println("The light is cyan!");
     digitalWrite(2, HIGH);
+    digitalWrite(3, LOW);
     digitalWrite(4, HIGH);
   }
   else if (digitalRead(5) == LOW && digitalRead(6) == LOW && digitalRead(7) == LOW) {
@@ -45,11 +54,5 @@ void loop() {
     digitalWrite(2, HIGH);
     digitalWrite(3, HIGH);
     digitalWrite(4, HIGH);
-  }
-  // If no buttons are currently pressed, turn off all LEDs
-  else {
-    digitalWrite(2, LOW);
-    digitalWrite(3, LOW);
-    digitalWrite(4, LOW);
   }
 }
