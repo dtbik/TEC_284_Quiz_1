@@ -1,5 +1,6 @@
 // TEC 284 Quiz 1
 // Dane Bik
+// September 25, 2025
 void setup() {
   // Declare pinMode to read inputs from buttons and outputs for the LEDs, and start a Serial connection to print.
   Serial.begin(9600);
