@@ -1,3 +1,5 @@
+// TEC 284 Quiz 1
+// Dane Bik
 void setup() {
   // Declare pinMode to read inputs from buttons and outputs for the LEDs, and start a Serial connection to print.
   Serial.begin(9600);
@@ -10,17 +12,38 @@ void setup() {
 }
 
 void loop() {
-  // Check if button is pressed, then light up the LED associated with the button and print out the color
-  if (!digitalRead(5)) {
+  // Check if any button is pressed, then lights up the LED associated with each button and print out the color
+  if (digitalRead(5) == LOW && digitalRead(6) == HIGH && digitalRead(7) == HIGH) {
     Serial.println("The light is blue!");
     digitalWrite(2, HIGH);
   }
-  else if (!digitalRead(6)) {
+  else if (digitalRead(5) == HIGH && digitalRead(6) == LOW && digitalRead(7) == HIGH) {
     Serial.println("The light is red!");
     digitalWrite(3, HIGH);
   }
-  else if (!digitalRead(7)) {
+  else if (digitalRead(5) == HIGH && digitalRead(6) == HIGH && digitalRead(7) == LOW) {
     Serial.println("The light is green!");
+    digitalWrite(4, HIGH);
+  }
+  else if (digitalRead(5) == LOW && digitalRead(6) == LOW && digitalRead(7) == HIGH) {
+    Serial.println("The light is purple!");
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
+  }
+  else if (digitalRead(5) == HIGH && digitalRead(6) == LOW && digitalRead(7) == LOW) {
+    Serial.println("The light is yellow!");
+    digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+  }
+  else if (digitalRead(5) == LOW && digitalRead(6) == HIGH && digitalRead(7) == LOW) {
+    Serial.println("The light is cyan!");
+    digitalWrite(2, HIGH);
+    digitalWrite(4, HIGH);
+  }
+  else if (digitalRead(5) == LOW && digitalRead(6) == LOW && digitalRead(7) == LOW) {
+    Serial.println("The light is white!");
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
     digitalWrite(4, HIGH);
   }
   // If no buttons are currently pressed, turn off all LEDs
